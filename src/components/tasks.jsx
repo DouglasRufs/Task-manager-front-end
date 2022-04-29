@@ -1,8 +1,8 @@
 //imports de biblioteca
 import { useState, useEffect } from "react";
 import axios from "axios";
-//imports de arquivos
-import "./Tasks.scss";
+//imports de arquivos/style
+import "./StyleComponents/Tasks.scss";
 
 //imports components
 import TaskItem from "./TaskItem";
