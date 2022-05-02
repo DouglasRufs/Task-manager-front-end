@@ -6,6 +6,7 @@ import "./StyleComponents/Tasks.scss";
 
 //imports components
 import TaskItem from "./TaskItem";
+import AddTask from "./AddTask";
 
 const Tasks = () => {
     const [tasks, setTasks] = useState([
@@ -38,6 +39,7 @@ const Tasks = () => {
             <h2>Minhas tarefas do dia</h2>
             <div className="last-tasks">
                 <h3>Ultimas Tarefas</h3>
+                <AddTask />
                 <div className="taskslist">
                     {tasks
                         .filter((tasks) => tasks.isCompleted === false)
