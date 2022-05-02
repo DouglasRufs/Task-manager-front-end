@@ -1,9 +1,11 @@
-import "./StyleComponents/CustomButton";
+import "./StyleComponents/CustomButton.scss";
 
-const CustomButton = ({ children }) => {
-    <div className="custom-button-container" onClick={onClick}>
-        {children}
-    </div>;
+const CustomButton = ({ onClick, children }) => {
+    return (
+        <div className="custom-button-container" onClick={onClick}>
+            {children}
+        </div>
+    );
 };
 
 export default CustomButton;
