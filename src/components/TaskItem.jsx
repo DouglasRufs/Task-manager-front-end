@@ -4,12 +4,17 @@ import axios from "axios";
 
 import "./StyleComponents/TasksItem.scss";
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, fetchTasks }) => {
     const alert = useAlert();
 
     const handleTaskDeletion = async () => {
         try {
             await axios.delete(`http://localhost:8000/tasks/${task._id}`);
+            
+            alert.success("Foi retirado com sucesso");
+
+            await fetchTasks("");
+            
         } catch (error) {
             alert.error("Algo deu errado");
         }
