@@ -10,11 +10,22 @@ const TaskItem = ({ task, fetchTasks }) => {
     const handleTaskDeletion = async () => {
         try {
             await axios.delete(`http://localhost:8000/tasks/${task._id}`);
-            
+
             alert.success("Foi retirado com sucesso");
 
             await fetchTasks("");
-            
+        } catch (error) {
+            alert.error("Algo deu errado");
+        }
+    };
+
+    const handleTaskChange = async (e) => {
+        try {
+            await axios.patch(`http://localhost:8000/tasks/${task._id}`, {
+                isCompleted: e.target.checked,
+            });
+            await fetchTasks();
+            alert.success("a Tarefa foi motificada com sucesso !");
         } catch (error) {
             alert.error("Algo deu errado");
         }
@@ -30,7 +41,11 @@ const TaskItem = ({ task, fetchTasks }) => {
                     }
                 >
                     {task.description}
-                    <input type="checkbox" defaultChecked={task.isCompleted} />
+                    <input
+                        type="checkbox"
+                        defaultChecked={task.isCompleted}
+                        onChange={(e) => handleTaskChange(e)}
+                    />
                     <span
                         className={
                             task.isCompleted
