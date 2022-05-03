@@ -14,6 +14,8 @@ const TaskItem = ({ task, fetchTasks }) => {
             alert.success("Foi retirado com sucesso");
 
             await fetchTasks("");
+
+            await alert.success("A tarefa foi adicionada com suceso!");
         } catch (error) {
             alert.error("Algo deu errado");
         }
