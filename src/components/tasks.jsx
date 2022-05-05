@@ -1,5 +1,5 @@
 //imports de biblioteca
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import axios from "axios";
 //imports de arquivos/style
 import "./StyleComponents/Tasks.scss";
@@ -7,29 +7,21 @@ import "./StyleComponents/Tasks.scss";
 //imports components
 import TaskItem from "./TaskItem";
 import AddTask from "./AddTask";
+import { useAlert } from "react-alert";
 
 const Tasks = () => {
-    const [tasks, setTasks] = useState([
-        {
-            id: "1",
-            description: "Estudar Programação",
-            isCompleted: false,
-        },
-        {
-            id: "2",
-            description: "Ler",
-            isCompleted: true,
-        },
-    ]);
+    const [tasks, setTasks] = useState([]);
 
-    const fetchTasks = async () => {
+    const alert = useAlert();
+
+    const fetchTasks = useCallback(async () => {
         try {
             const { data } = await axios.get("http://localhost:8000/tasks");
             setTasks(data);
         } catch (error) {
             alert.error("Não foi possivel recuperar as tarefas ");
         }
-    };
+    }, [alert]);
 
     const lastTasks = useMemo(() => {
         return tasks.filter((tasks) => tasks.isCompleted === false);
@@ -40,7 +32,7 @@ const Tasks = () => {
 
     useEffect(() => {
         fetchTasks();
-    }, []);
+    }, [fetchTasks]);
     return (
         <div className="tasks-container">
             <h2>Minhas tarefas do dia</h2>
