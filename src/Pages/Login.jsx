@@ -1,7 +1,7 @@
 import CustomButton from "../components/CustomButton";
 
-import logo from "../components/Assets/Images/download.png";
-import "./login.scss";
+import logo from "../components/Assets/Images/logo-2.png";
+import "./Login.scss";
 
 const login = () => {
     return (
@@ -13,3 +13,5 @@ const login = () => {
         </div>
     );
 };
+
+export default login;
