@@ -1,7 +1,8 @@
 .custom-button-container {
-    padding: 10px;
-    border-radius: 5px;
-    background: linear-gradient(262.71deg, #00d1ff -30.04%, #00ffa3 124.74%);
+    left: -10px;
+    padding: 12px;
+    border-radius: 8px;
+    background: linear-gradient(-262.71deg, #000000 -30.04%, #126054 124.74%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,4 +10,6 @@
 
 .custom-button-container:hover {
     cursor: pointer;
+    opacity: 0.8;
+    background: linear-gradient(262.71deg, #000000 -30.04%, #126054 124.74%);
 }

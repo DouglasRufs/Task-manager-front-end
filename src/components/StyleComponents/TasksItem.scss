@@ -30,6 +30,7 @@
     -ms-user-select: none;
     user-select: none;
     padding-top: 1.5px;
+    
 }
 
 .checkbox-container-completed {
@@ -67,7 +68,7 @@
 
 /* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked ~ .checkmark {
-    background: linear-gradient(262.71deg, #00d1ff -30.04%, #00ffa3 124.74%);
+    background: linear-gradient(262.71deg, #000000 -30.04%, #126054 124.74%);
 }
 
 .checkbox-container input:checked ~ .completed {

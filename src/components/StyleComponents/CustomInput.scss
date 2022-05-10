@@ -3,7 +3,7 @@ $main-color: #126054;
 
 @mixin shrinkLabel {
     top: -14px;
-    font-size: 12px;
+    font-size: 20px;
     color: $main-color;
 }
 
@@ -29,6 +29,7 @@ $main-color: #126054;
         }
 
         &:focus ~ .custom-input-label {
+            top:-14px;
             @include shrinkLabel();
         }
     }
@@ -44,6 +45,7 @@ $main-color: #126054;
         transition: 300ms ease all;
 
         &.shrink {
+            top:-14px;
             @include shrinkLabel();
         }
     }
